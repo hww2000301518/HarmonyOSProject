@@ -35,6 +35,70 @@
     {
       "name": "Login_PhoneNumber",
       "value": "PhoneNumber"
+    },
+    {
+      "name": "mainPage_tabTitles_home",
+      "value": "Home"
+    },
+    {
+      "name": "home_list",
+      "value": "List"
+    },
+    {
+      "name": "mainPage_tabTitles_mine",
+      "value": "Mine"
+    },
+    {
+      "name": "setting_account_name",
+      "value": "Mr . huang"
+    },
+    {
+      "name": "setting_account_email",
+      "value": "2000301518@guet.com"
+    },
+    {
+      "name": "setting_button",
+      "value": "Logout"
+    },
+    {
+      "name": "my_love",
+      "value": "My favorite"
+    },
+    {
+      "name": "history_record",
+      "value": "History"
+    },
+    {
+      "name": "message",
+      "value": "Message"
+    },
+    {
+      "name": "setting_list_news",
+      "value": "Push Notifications"
+    },
+    {
+      "name": "setting_list_data",
+      "value": "Data Mangement"
+    },
+    {
+      "name": "setting_list_menu",
+      "value": "Menu Settings"
+    },
+    {
+      "name": "setting_list_storage",
+      "value": "Clear Cache"
+    },
+    {
+      "name": "setting_list_privacy",
+      "value": "Privacy Agreement"
+    },
+    {
+      "name": "setting_list_about",
+      "value": "about"
+    },
+    {
+      "name": "setting_toggle",
+      "value": "Switch"
     }
   ]
 }

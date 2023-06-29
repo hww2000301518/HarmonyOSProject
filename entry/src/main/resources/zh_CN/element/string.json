@@ -35,6 +35,70 @@
     {
       "name": "Login_PhoneNumber",
       "value": "请输入电话号码："
+    },
+    {
+      "name": "mainPage_tabTitles_home",
+      "value": "首页"
+    },
+    {
+      "name": "home_list",
+      "value": "列表"
+    },
+    {
+      "name": "mainPage_tabTitles_mine",
+      "value": "我的"
+    },
+    {
+      "name": "setting_account_name",
+      "value": "黄先生"
+    },
+    {
+      "name": "setting_account_email",
+      "value": "2000301518@guet.com"
+    },
+    {
+      "name": "setting_button",
+      "value": "退出登录"
+    },
+    {
+      "name": "my_love",
+      "value": "我的最爱"
+    },
+    {
+      "name": "history_record",
+      "value": "历史记录"
+    },
+    {
+      "name": "message",
+      "value": "消息"
+    },
+    {
+      "name": "setting_list_news",
+      "value": "推送消息"
+    },
+    {
+      "name": "setting_list_data",
+      "value": "数据管理"
+    },
+    {
+      "name": "setting_list_menu",
+      "value": "菜单设置"
+    },
+    {
+      "name": "setting_list_storage",
+      "value": "清除缓存"
+    },
+    {
+      "name": "setting_list_about",
+      "value": "关于"
+    },
+    {
+      "name": "setting_list_privacy",
+      "value": "隐私协议"
+    },
+    {
+      "name": "setting_toggle",
+      "value": "开关"
     }
   ]
 }

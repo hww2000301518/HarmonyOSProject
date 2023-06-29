@@ -1,6 +1,6 @@
 import router from '@ohos.router';
-import CommonConstants from '../../common/constants/CommonConstants';
-import Logger from '../../common/utils/Logger';
+import CommonConstants from '../common/constants/CommonConstants';
+import Logger from '../common/utils/Logger';
 @Entry
 @Component
 struct Login {
@@ -81,7 +81,7 @@ struct Login {
             else if(this.password=='hww'){
               console.info('login ok!')
               router.pushUrl({
-                url:'pages/LoginOK',
+                url:'pages/homePage',
                 params:{phoneNumberParm:this.phoneNumber}
               })
             }
