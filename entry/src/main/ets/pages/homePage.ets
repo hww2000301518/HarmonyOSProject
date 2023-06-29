@@ -1,6 +1,7 @@
 import CommonConstants from '../common/constants/CommonConstants';
 import Home from '../view/Home';
-import Setting from '../view/Setting';
+import Setting from '../view/Mine';
+import classify from '../view/classify'
 @Entry
 @Component
 struct homePage {
@@ -38,7 +39,7 @@ struct homePage {
         $r('app.media.home_selected'), $r('app.media.home_normal')))
 
       TabContent() {
-        Home()
+        classify()
       }
       .padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })
       .backgroundColor($r('app.color.mainPage_backgroundColor'))

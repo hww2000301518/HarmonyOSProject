@@ -99,6 +99,26 @@
     {
       "name": "setting_toggle",
       "value": "Switch"
+    },
+    {
+      "name": "hei_ti_medium",
+      "value": "HarmonyHeiTi-Medium"
+    },
+    {
+      "name": "loading",
+      "value": "loading..."
+    },
+    {
+      "name": "hei_ti",
+      "value": "HarmonyHeiTi"
+    },
+    {
+      "name": "free_price",
+      "value": "Free"
+    },
+    {
+      "name": "price_str",
+      "value": "¥%d"
     }
   ]
 }

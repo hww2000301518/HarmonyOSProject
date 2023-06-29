@@ -81,7 +81,7 @@ struct Login {
             else if(this.password=='hww'){
               console.info('login ok!')
               router.pushUrl({
-                url:'pages/homePage',
+                url:'pages/Loading',
                 params:{phoneNumberParm:this.phoneNumber}
               })
             }

@@ -99,6 +99,26 @@
     {
       "name": "setting_toggle",
       "value": "开关"
+    },
+    {
+      "name": "hei_ti_medium",
+      "value": "HarmonyHeiTi-Medium"
+    },
+    {
+      "name": "loading",
+      "value": "加载数据中..."
+    },
+    {
+      "name": "hei_ti",
+      "value": "HarmonyHeiTi"
+    },
+    {
+      "name": "free_price",
+      "value": "Free"
+    },
+    {
+      "name": "price_str",
+      "value": "¥%d"
     }
   ]
 }
