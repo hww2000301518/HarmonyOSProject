@@ -5,6 +5,7 @@
     "pages/Login",
     "pages/Signin",
     "pages/homePage",
-    "pages/Loading"
+    "pages/Loading",
+    "pages/test"
   ]
 }

@@ -23,26 +23,37 @@ import ItemData from '../common/bean/ItemData';
 @Component
 export default struct Home {
   private swiperController: SwiperController = new SwiperController();
+  @State changeValue: string = '';
+  @State submitValue: string = '';
+  controller: SearchController = new SearchController();
 
   build() {
     Scroll() {
       Column({ space: CommonConstants.COMMON_SPACE }) {
-        Column(){
-          Text($r('app.string.mainPage_tabTitles_home'))
-            .fontWeight(FontWeight.Medium)
-            .fontSize($r('app.float.page_title_text_size'))
-            .margin({ top: $r('app.float.mainPage_tabTitles_margin') })
-            .padding({ left: $r('app.float.mainPage_tabTitles_padding') })
-        }
-        .width(CommonConstants.FULL_PARENT)
-        .alignItems(HorizontalAlign.Start)
+        Column() {
+          Search({ value: this.changeValue, placeholder: '请输入搜索内容', controller: this.controller })
+            .searchButton('搜索')
+            .width('90%')
+            .height(40)
+            .backgroundColor(Color.White)
+            .placeholderColor(Color.Grey)
+            .placeholderFont({ size: 14, weight: 400 })
+            .textFont({ size: 14, weight: 400 })
+            .onSubmit((value: string) => {
+              this.submitValue = value;
+            })
+            .onChange((value: string) => {
+              this.changeValue = value;
+            })
 
+        }.width('100%')
         Swiper(this.swiperController) {
           ForEach(mainViewModel.getSwiperImages(), (img: Resource) => {
             Image(img).borderRadius($r('app.float.home_swiper_borderRadius'))
           }, img => img.id)
         }
-        .margin({ top: $r('app.float.home_swiper_margin') })
+        .interval(6000)
+        //.margin({ top: $r('app.float.home_swiper_margin') })
         .autoPlay(true)
 
         Grid() {
@@ -106,6 +117,7 @@ export default struct Home {
         .margin({ bottom: $r('app.float.setting_button_bottom')})
       }
     }
+    .scrollBar(BarState.Off)
     .height(CommonConstants.FULL_PARENT)
   }
 }
