@@ -119,6 +119,38 @@
     {
       "name": "price_str",
       "value": "¥%d"
+    },
+    {
+      "name": "free_course",
+      "value": "course"
+    },
+    {
+      "name": "shopping_car",
+      "value": "shopping_car"
+    },
+    {
+      "name": "peixun",
+      "value": "peixun"
+    },
+    {
+      "name": "class",
+      "value": "class"
+    },
+    {
+      "name": "favorite",
+      "value": "favorite"
+    },
+    {
+      "name": "clear",
+      "value": "clear"
+    },
+    {
+      "name": "more",
+      "value": "More"
+    },
+    {
+      "name": "course",
+      "value": "course"
     }
   ]
 }

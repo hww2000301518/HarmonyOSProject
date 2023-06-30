@@ -16,6 +16,7 @@
 import CommonConstants from '../common/constants/CommonConstants';
 import mainViewModel from '../viewmodel/MainViewModel';
 import ItemData from '../common/bean/ItemData';
+import router from '@ohos.router';
 
 /**
  * Home tab content
@@ -52,6 +53,8 @@ export default struct Home {
             Image(img).borderRadius($r('app.float.home_swiper_borderRadius'))
           }, img => img.id)
         }
+        .height('20%')
+        .width('98%')
         .interval(6000)
         //.margin({ top: $r('app.float.home_swiper_margin') })
         .autoPlay(true)
@@ -79,25 +82,52 @@ export default struct Home {
         .backgroundColor(Color.White)
         .borderRadius($r('app.float.home_grid_borderRadius'))
 
-        Text($r('app.string.home_list'))
-          .fontSize($r('app.float.normal_text_size'))
-          .fontWeight(FontWeight.Medium)
-          .width(CommonConstants.FULL_PARENT)
-          .margin({ top: $r('app.float.home_text_margin') })
+        Row(){
+          Text($r('app.string.course'))
+            .fontSize($r('app.float.normal_text_size'))
+            .fontWeight(FontWeight.Medium)
+            .width(CommonConstants.NINETY_PARENT)
+            .margin({ top: $r('app.float.home_text_margin') })
+
+          Text($r('app.string.more'))
+            .fontSize($r('app.float.little_text_size'))
+            .fontColor($r('app.color.home_grid_fontColor'))
+            .margin({ top: $r('app.float.home_text_margin') })
+            .onClick(() => {
+              router.pushUrl({
+                url:"pages/more"
+              })
+            })
+
+
+          Image($r('app.media.right_grey'))
+            .width($r('app.float.setting_jump_width'))
+            .height($r('app.float.setting_jump_height'))
+            .margin({
+              top: $r('app.float.home_text_margin'),
+              left:5
+            })
+            .onClick(() => {
+            router.pushUrl({
+              url:"pages/more"
+            })
+          })
+        }
+
 
         Grid() {
           ForEach(mainViewModel.getSecondGridData(), (secondItem: ItemData) => {
             GridItem() {
-              Column() {
-                Text(secondItem.title)
-                  .fontSize($r('app.float.normal_text_size'))
-                  .fontWeight(FontWeight.Medium)
-                Text(secondItem.others)
-                  .margin({ top: $r('app.float.home_list_margin') })
-                  .fontSize($r('app.float.little_text_size'))
-                  .fontColor($r('app.color.home_grid_fontColor'))
-              }
-              .alignItems(HorizontalAlign.Start)
+              // Column() {
+              //   Text(secondItem.title)
+              //     .fontSize($r('app.float.normal_text_size'))
+              //     .fontWeight(FontWeight.Medium)
+              //   Text(secondItem.others)
+              //     .margin({ top: $r('app.float.home_list_margin') })
+              //     .fontSize($r('app.float.little_text_size'))
+              //     .fontColor($r('app.color.home_grid_fontColor'))
+              // }
+              // .alignItems(HorizontalAlign.Start)
             }
             .padding({ top: $r('app.float.home_list_padding'), left: $r('app.float.home_list_padding') })
             .borderRadius($r('app.float.home_backgroundImage_borderRadius'))
@@ -120,4 +150,7 @@ export default struct Home {
     .scrollBar(BarState.Off)
     .height(CommonConstants.FULL_PARENT)
   }
+}
+function FULL_WIDTH<T>(FULL_WIDTH: any) {
+throw new Error('Function not implemented.');
 }

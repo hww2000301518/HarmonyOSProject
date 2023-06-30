@@ -119,6 +119,38 @@
     {
       "name": "price_str",
       "value": "¥%d"
+    },
+    {
+      "name": "free_course",
+      "value": "免费课程"
+    },
+    {
+      "name": "shopping_car",
+      "value": "购物车"
+    },
+    {
+      "name": "peixun",
+      "value": "培训"
+    },
+    {
+      "name": "class",
+      "value": "班级"
+    },
+    {
+      "name": "favorite",
+      "value": "收藏"
+    },
+    {
+      "name": "clear",
+      "value": "清理"
+    },
+    {
+      "name": "more",
+      "value": "查看更多"
+    },
+    {
+      "name": "course",
+      "value": "课程"
     }
   ]
 }

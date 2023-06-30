@@ -6,6 +6,8 @@
     "pages/Signin",
     "pages/homePage",
     "pages/Loading",
-    "pages/test"
+    "pages/test",
+    "pages/more"
+
   ]
 }

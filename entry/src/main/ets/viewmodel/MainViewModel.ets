@@ -27,10 +27,11 @@ export class MainViewModel {
    */
   getSwiperImages(): Array<Resource> {
     let swiperImages: Resource[] = [
-      $r('app.media.fig1'),
-      $r('app.media.fig2'),
-      $r('app.media.fig3'),
-      $r('app.media.fig4')
+      $r('app.media.img1'),
+      $r('app.media.img2'),
+      $r('app.media.img3'),
+      $r('app.media.img4'),
+      $r('app.media.img5')
     ];
     return swiperImages;
   }
@@ -43,13 +44,13 @@ export class MainViewModel {
   getFirstGridData(): Array<ItemData> {
     let firstGridData: ItemData[] = [
       new ItemData($r('app.string.my_love'), $r('app.media.love')),
-      new ItemData($r('app.string.history_record'), $r('app.media.record')),
+      new ItemData($r('app.string.free_course'), $r('app.media.record')),
       new ItemData($r('app.string.message'), $r('app.media.message')),
-      new ItemData($r('app.string.my_love'), $r('app.media.shopping')),
-      new ItemData($r('app.string.my_love'), $r('app.media.target')),
-      new ItemData($r('app.string.my_love'), $r('app.media.circle')),
-      new ItemData($r('app.string.my_love'), $r('app.media.favorite')),
-      new ItemData($r('app.string.my_love'), $r('app.media.recycle'))
+      new ItemData($r('app.string.shopping_car'), $r('app.media.shopping')),
+      new ItemData($r('app.string.peixun'), $r('app.media.target')),
+      new ItemData($r('app.string.class'), $r('app.media.circle')),
+      new ItemData($r('app.string.favorite'), $r('app.media.favorite')),
+      new ItemData($r('app.string.clear'), $r('app.media.recycle'))
     ];
     return firstGridData;
   }
@@ -62,10 +63,10 @@ export class MainViewModel {
    */
   getSecondGridData(): Array<ItemData> {
     let secondGridData: ItemData[] = [
-      new ItemData($r('app.string.my_love'), $r('app.media.top'), $r('app.string.my_love')),
-      new ItemData($r('app.string.my_love'), $r('app.media.new'), $r('app.string.my_love')),
-      new ItemData($r('app.string.my_love'), $r('app.media.brand'), $r('app.string.my_love')),
-      new ItemData($r('app.string.my_love'), $r('app.media.found'), $r('app.string.my_love'))
+      new ItemData($r('app.string.my_love'), $r('app.media.course1'), $r('app.string.my_love')),
+      new ItemData($r('app.string.my_love'), $r('app.media.course2'), $r('app.string.my_love')),
+      new ItemData($r('app.string.my_love'), $r('app.media.course3'), $r('app.string.my_love')),
+      new ItemData($r('app.string.my_love'), $r('app.media.course4'), $r('app.string.my_love'))
     ];
     return secondGridData;
   }

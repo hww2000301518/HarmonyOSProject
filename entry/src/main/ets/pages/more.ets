@@ -4,9 +4,10 @@ import CourseModel from '../common/bean/CourseModel';
 import CourseItem from '../view/CourseItem';
 import ClassifyItem from '../view/ClassityItem';
 import ClassifyViewModel from '../viewmodel/ClassifyViewModel';
+import router from '@ohos.router';
 @Component
 @Entry
-struct test{
+struct More{
   @State requestSuccess: boolean = false; // is loading data.
   @State currentClassify: number = 0; // selected classify index.
   private classifyList: Array<ClassifyModel> = [];
@@ -37,6 +38,14 @@ struct test{
 
   @Builder ClassifyHeader(classifyName: string) {
     Row() {
+      Image($r('app.media.left_grey'))
+        .width($r('app.float.setting_jump_width'))
+        .height($r('app.float.setting_jump_height'))
+        .margin({right:5})
+        .onClick(() => {
+          router.back()
+        })
+
       Text(classifyName)
         .fontSize($r('app.float.header_font_size'))
         .fontColor($r('app.color.base_font_color'))
@@ -52,21 +61,24 @@ struct test{
   build() {
     Row() {
       if (this.requestSuccess) {
-        // List({ scroller: this.classifyScroller }) {
-        //   ForEach(this.classifyList, (item: ClassifyModel, index: number) => {
-        //     ListItem() {
-        //       ClassifyItem({
-        //         classifyName: item.classifyName,
-        //         isSelected: this.currentClassify === index,
-        //         onClickAction: this.classifyChangeAction.bind(this, index, true)
+        // Row() {
+        //     Image($r('app.media.left_grey'))
+        //     .width($r('app.float.setting_jump_width'))
+        //     .height($r('app.float.setting_jump_height'))
+        //     .margin({right:5})
+        //     .onClick(() => {
+        //       router.back()
         //       })
-        //     }
-        //   }, (item: ClassifyModel) => item.classifyName + this.currentClassify)
+        //   Text('热门课程')
+        //   .fontSize($r('app.float.header_font_size'))
+        //   .fontColor($r('app.color.base_font_color'))
+        //   .fontFamily($r('app.string.hei_ti_medium'))
+        //   .fontWeight(Constants.TITLE_FONT_WEIGHT)
         // }
-        // .height(Constants.FULL_PERCENT)
-        // .width($r('app.float.classify_item_width'))
-        // .backgroundColor($r('app.color.classify_background'))
-        // .scrollBar(BarState.Off)
+        // .padding({ left: $r('app.float.item_padding_left') })
+        // .height($r('app.float.classify_item_height'))
+        // .width(Constants.FULL_PERCENT)
+        // .backgroundColor($r('app.color.base_background'))
 
         List({ scroller: this.scroller }) {
           ForEach(this.classifyList, (classifyItem: ClassifyModel) => {
