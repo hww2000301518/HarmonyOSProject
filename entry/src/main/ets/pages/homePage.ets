@@ -49,7 +49,7 @@ struct homePage {
 
 
       TabContent() {
-        Setting()
+        Mine()
       }
       .padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })
       .backgroundColor($r('app.color.mainPage_backgroundColor'))

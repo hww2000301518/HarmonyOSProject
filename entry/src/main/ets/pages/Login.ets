@@ -8,7 +8,7 @@ struct Login {
   @State phoneNumber : string = ''
   @State password : string = ''
   @State isSelect: boolean = false //隐私协议是否勾选
-  private phoneNumberCheckReg = /^1[3|4|5|6|7|8|9][0-9]{9}/ //手机号校验规则
+  // private phoneNumberCheckReg = /^1[3|4|5|6|7|8|9][0-9]{9}/ //手机号校验规则
   build() {
     Flex({direction:FlexDirection.Column,
       justifyContent:FlexAlign.SpaceAround,
