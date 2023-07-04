@@ -17,6 +17,7 @@ import CommonConstants from '../common/constants/CommonConstants';
 import mainViewModel from '../viewmodel/MainViewModel';
 import ItemData from '../common/bean/ItemData';
 import router from '@ohos.router';
+import url from '@ohos.url';
 
 /**
  * Home tab content
@@ -53,6 +54,11 @@ export default struct Home {
             Image(img).borderRadius($r('app.float.home_swiper_borderRadius'))
           }, img => img.id)
         }
+        .onClick(()=>
+                router.pushUrl({
+                  url:"pages/Videos"
+                })
+        )
         .height('20%')
         .width('98%')
         .interval(6000)
@@ -118,16 +124,6 @@ export default struct Home {
         Grid() {
           ForEach(mainViewModel.getSecondGridData(), (secondItem: ItemData) => {
             GridItem() {
-              // Column() {
-              //   Text(secondItem.title)
-              //     .fontSize($r('app.float.normal_text_size'))
-              //     .fontWeight(FontWeight.Medium)
-              //   Text(secondItem.others)
-              //     .margin({ top: $r('app.float.home_list_margin') })
-              //     .fontSize($r('app.float.little_text_size'))
-              //     .fontColor($r('app.color.home_grid_fontColor'))
-              // }
-              // .alignItems(HorizontalAlign.Start)
             }
             .padding({ top: $r('app.float.home_list_padding'), left: $r('app.float.home_list_padding') })
             .borderRadius($r('app.float.home_backgroundImage_borderRadius'))

@@ -59,54 +59,64 @@ struct More{
   }
 
   build() {
-    Row() {
-      if (this.requestSuccess) {
-        // Row() {
-        //     Image($r('app.media.left_grey'))
-        //     .width($r('app.float.setting_jump_width'))
-        //     .height($r('app.float.setting_jump_height'))
-        //     .margin({right:5})
-        //     .onClick(() => {
-        //       router.back()
-        //       })
-        //   Text('热门课程')
-        //   .fontSize($r('app.float.header_font_size'))
-        //   .fontColor($r('app.color.base_font_color'))
-        //   .fontFamily($r('app.string.hei_ti_medium'))
-        //   .fontWeight(Constants.TITLE_FONT_WEIGHT)
-        // }
-        // .padding({ left: $r('app.float.item_padding_left') })
-        // .height($r('app.float.classify_item_height'))
-        // .width(Constants.FULL_PERCENT)
-        // .backgroundColor($r('app.color.base_background'))
 
-        List({ scroller: this.scroller }) {
-          ForEach(this.classifyList, (classifyItem: ClassifyModel) => {
-            ListItemGroup({
-              header: this.ClassifyHeader(classifyItem.classifyName),
-              space: Constants.COURSE_ITEM_PADDING
-            }) {
-              ForEach(classifyItem.courseList, (courseItem: CourseModel) => {
-                ListItem() {
-                  CourseItem({ itemStr: JSON.stringify(courseItem) })
-                }
-              }, (courseItem: CourseModel) => `${courseItem.courseId}`)
+    Column(){
+      Row(){
+        Image($r('app.media.left_grey'))
+          .width(40)
+          .height(40)
+          .onClick(()=>{
+            router.pushUrl({
+              url:'pages/homePage'
+            })
+          })
+        Text('热门课程')
+          .textAlign(TextAlign.Start)
+          .fontSize($r('app.float.page_title_text_size'))
+          .fontWeight(FontWeight.Medium)
+      }.width(Constants.FULL_WIDTH)
+      .margin(10)
+      .justifyContent(FlexAlign.Start)
+
+      Column(){
+        Row() {
+          if (this.requestSuccess) {
+            List({ scroller: this.scroller }) {
+              ForEach(this.classifyList, (classifyItem: ClassifyModel) => {
+                // ListItemGroup({
+                //   header: this.ClassifyHeader(classifyItem.classifyName),
+                //   space: Constants.COURSE_ITEM_PADDING
+                // }) {
+                ForEach(classifyItem.courseList, (courseItem: CourseModel) => {
+                  ListItem() {
+                    CourseItem({ itemStr: JSON.stringify(courseItem) })
+                  }
+                  .onClick(()=>{
+                    router.pushUrl({
+                      url:'pages/CourseDetail'
+                    })
+                  })
+                }, (courseItem: CourseModel) => `${courseItem.courseId}`)
+                //}
+              }, (item: ClassifyModel) => `${item.classifyId}`)
             }
-          }, (item: ClassifyModel) => `${item.classifyId}`)
+
+            .padding({ left: $r('app.float.item_padding_left'), right: $r('app.float.course_item_padding') })
+            .sticky(StickyStyle.Header)
+            .layoutWeight(1)
+            .edgeEffect(EdgeEffect.None)
+            .onScrollIndex((start: number) => this.classifyChangeAction(start, false))
+          } else {
+            Text($r('app.string.loading'))
+              .fontFamily($r('app.string.hei_ti_medium'))
+              .textAlign(TextAlign.Center)
+              .height(Constants.FULL_PERCENT)
+              .width(Constants.FULL_PERCENT)
+          }
         }
-        .padding({ left: $r('app.float.item_padding_left'), right: $r('app.float.course_item_padding') })
-        .sticky(StickyStyle.Header)
-        .layoutWeight(1)
-        .edgeEffect(EdgeEffect.None)
-        .onScrollIndex((start: number) => this.classifyChangeAction(start, false))
-      } else {
-        Text($r('app.string.loading'))
-          .fontFamily($r('app.string.hei_ti_medium'))
-          .textAlign(TextAlign.Center)
-          .height(Constants.FULL_PERCENT)
-          .width(Constants.FULL_PERCENT)
-      }
+        .backgroundColor($r('app.color.base_background'))
+      }.width('100%')
+
     }
-    .backgroundColor($r('app.color.base_background'))
   }
 }

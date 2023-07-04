@@ -7,6 +7,9 @@
     "pages/homePage",
     "pages/Loading",
     "pages/test",
-    "pages/more"
+    "pages/more",
+    "pages/Videos",
+    "pages/CourseDetail",
+    "pages/VedioPlay"
   ]
 }

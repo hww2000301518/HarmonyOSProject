@@ -1,7 +1,8 @@
 import CommonConstants from '../common/constants/CommonConstants';
 import Home from '../view/Home';
-import Setting from '../view/Mine';
 import classify from '../view/classify'
+import Mine from '../view/Mine';
+import Community from '../view/Community';
 @Entry
 @Component
 struct homePage {
@@ -46,7 +47,13 @@ struct homePage {
       .tabBar(this.TabBuilder(CommonConstants.CLASSFITY_TITLE, CommonConstants.CLASSFITY_TAB_INDEX,
         $r('app.media.classify_select'), $r('app.media.classify_nornal')))
 
-
+      TabContent() {
+        Community()
+      }
+      .padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })
+      .backgroundColor($r('app.color.mainPage_backgroundColor'))
+      .tabBar(this.TabBuilder(CommonConstants.DISCOVER_TITLE, CommonConstants.DISCOVER_TAB_INDEX,
+        $r('app.media.discover_selectd'), $r('app.media.discover_normal2')))
 
       TabContent() {
         Mine()

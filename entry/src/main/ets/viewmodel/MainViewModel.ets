@@ -1,19 +1,9 @@
-/*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
+import CommunityModel from '../Common/bean/CommunityModel';
 
 import ItemData from '../common/bean/ItemData';
+import videos from '../common/bean/videos';
+import Community from '../view/Community';
 
 /**
  * Binds data to components and provides interfaces.
@@ -87,6 +77,28 @@ export class MainViewModel {
       new ItemData($r('app.string.setting_list_privacy'), $r("app.media.privacy"), null)
     ];
     return settingListData;
+  }
+
+  getVideos():Array<videos>{
+    let videosDetail:Array<videos> =[
+      new videos('1','踏浪而来',$rawfile('video1.mp4'),111,1231,true,123),
+      new videos('2','椰风起时',$rawfile('video2.mp4'),122,1241,false,234),
+      new videos('3','夜航船',$rawfile('video3.mp4'),133,234,true,345),
+      new videos('4','艳阳高照',$rawfile('video4.mp4'),144,3456,false,456),
+    ]
+    return videosDetail;
+  }
+
+  getCommunity():Array<CommunityModel>{
+    let getCommunity:Array<CommunityModel> =[
+      new CommunityModel(false,false,$r('app.media.round1'),'杨亮老师','2022年9月28日',$r('app.media.test'),100,1000,100),
+      new CommunityModel(false,false,$r('app.media.round2'),'杨亮老师','2022年9月28日',$r('app.media.test'),100,1000,100),
+      new CommunityModel(false,false,$r('app.media.round3'),'杨亮老师','2022年9月28日',$r('app.media.test'),100,1000,100),
+      new CommunityModel(false,false,$r('app.media.round4'),'杨亮老师','2022年9月28日',$r('app.media.test'),100,1000,100),
+      new CommunityModel(false,false,$r('app.media.round5'),'杨亮老师','2022年9月28日',$r('app.media.test'),100,1000,100),
+      new CommunityModel(false,false,$r('app.media.round6'),'杨亮老师','2022年9月28日',$r('app.media.test'),100,1000,100),
+    ]
+    return getCommunity;
   }
 }
 

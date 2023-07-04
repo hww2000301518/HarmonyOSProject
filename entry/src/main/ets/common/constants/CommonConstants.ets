@@ -19,10 +19,12 @@ export default class CommonConstants {
    * Mine tab index
    */
   static readonly  CLASSFITY_TAB_INDEX= 1;
+
+  static readonly  DISCOVER_TAB_INDEX= 2;
   /**
    * Mine tab index
    */
-  static readonly MINE_TAB_INDEX = 2;
+  static readonly MINE_TAB_INDEX = 3;
   /**
    * The width or height of the component is spread across the parent component.
    */
@@ -37,6 +39,11 @@ export default class CommonConstants {
    * Title text of the setting page
    */
   static readonly CLASSFITY_TITLE = '分类';
+
+  /**
+   * Title text of the setting page
+   */
+  static readonly DISCOVER_TITLE = '社区';
 
   /**
    * Title text of the setting page
