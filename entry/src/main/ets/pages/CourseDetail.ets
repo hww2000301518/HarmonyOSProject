@@ -1,12 +1,7 @@
-
-
 import CommonConstants from '../common/constants/CommonConstants';
 import mainViewModel from '../viewmodel/MainViewModel';
 import ItemData from '../common/bean/ItemData';
 import router from '@ohos.router';
-
-import image from '@ohos.multimedia.image';
-import VideoListItem from '../Common/bean/videos';
 
 /**
  * Home tab content
@@ -82,7 +77,7 @@ struct CourseDetail {
             TabContent(){
               Scroll(){
                 List() {
-                  ForEach(mainViewModel.getVideos(), (item: ItemData) => {
+                  ForEach(mainViewModel.getVideoListData(), (item: ItemData) => {
                     ListItem() {
                       this.settingCell(item)
                     }

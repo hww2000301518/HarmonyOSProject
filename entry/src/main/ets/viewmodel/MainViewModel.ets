@@ -89,6 +89,18 @@ export class MainViewModel {
     return videosDetail;
   }
 
+  getVideoListData(): Array<ItemData>{
+    let videoListData: ItemData[] = [
+      new ItemData($r('app.string.video_name_1'),$r('app.media.video')),
+      new ItemData($r('app.string.video_name_2'),$r('app.media.video')),
+      new ItemData($r('app.string.video_name_3'),$r('app.media.video')),
+      new ItemData($r('app.string.video_name_4'),$r('app.media.video')),
+      new ItemData($r('app.string.video_name_5'),$r('app.media.video')),
+      new ItemData($r('app.string.video_name_6'),$r('app.media.video')),
+    ]
+    return videoListData
+  }
+
   getCommunity():Array<CommunityModel>{
     let getCommunity:Array<CommunityModel> =[
       new CommunityModel(false,false,$r('app.media.round1'),'杨亮老师','2022年9月28日',$r('app.media.test'),100,1000,100),

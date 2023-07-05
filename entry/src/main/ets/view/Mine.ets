@@ -1,18 +1,3 @@
-/*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import CommonConstants from '../common/constants/CommonConstants';
 import ItemData from '../common/bean/ItemData';
 import mainViewModel from '../viewmodel/MainViewModel';
@@ -84,6 +69,57 @@ export default struct Mine {
         .padding({ left: $r('app.float.setting_account_padding') })
         .borderRadius($r('app.float.setting_account_borderRadius'))
 
+
+        Row(){
+          Column(){
+            Image($r('app.media.record'))
+              .width('24vp')
+              .height('24vp')
+              .margin({left:'-8%'})
+            Text($r('app.string.history_record'))
+              .fontSize('12fp')
+              .margin({top:'4vp',left:'-8%'})
+          }
+          // .onClick(() => {
+          //   router.pushUrl({
+          //     url:'pages/HistoryPage'
+          //   })
+          // })
+          Column(){
+            Image($r('app.media.target'))
+              .width('24vp')
+              .height('24vp')
+              .margin({left:'10%'})
+            Text('待办事项')
+              .fontSize('12fp')
+              .margin({top:'4vp',left:'10%'})
+          }.onClick(() => {
+
+            router.pushUrl({
+              url:'pages/ToDoListPage'
+            })
+          })
+          Column(){
+            Image($r('app.media.circle'))
+              .width('24vp')
+              .height('24vp')
+              .margin({left:'12%'})
+            Text('小组')
+              .fontSize('12fp')
+              .margin({top:'4vp',left:'12%'})
+          }
+          Column(){
+            Image($r('app.media.favorite'))
+              .width('24vp')
+              .height('24vp')
+              .margin({left:'15%'})
+            Text('收藏')
+              .fontSize('12fp')
+              .margin({top:'4vp',left:'15%'})
+          }
+        }
+
+
         List() {
           ForEach(mainViewModel.getSettingListData(), (item: ItemData) => {
             ListItem() {
@@ -104,6 +140,18 @@ export default struct Mine {
 
         Blank()
 
+        Button(('修改密码'), { type: ButtonType.Capsule })
+          .width(CommonConstants.BUTTON_WIDTH)
+          .height($r('app.float.login_button_height'))
+          .fontSize($r('app.float.normal_text_size'))
+          .fontColor($r('app.color.setting_button_fontColor'))
+          .fontWeight(FontWeight.Medium)
+          .backgroundColor($r('app.color.setting_button_backgroundColor'))
+          .margin({ bottom: $r('app.float.setting_button_bottom')})
+          .onClick(()=>{
+            router.pushUrl({url:'pages/change'})
+          })
+
         Button($r('app.string.setting_button'), { type: ButtonType.Capsule })
           .width(CommonConstants.BUTTON_WIDTH)
           .height($r('app.float.login_button_height'))
@@ -112,11 +160,11 @@ export default struct Mine {
           .fontWeight(FontWeight.Medium)
           .backgroundColor($r('app.color.setting_button_backgroundColor'))
           .margin({ bottom: $r('app.float.setting_button_bottom')})
+          // .height(CommonConstants.FULL_PARENT)
+          .onClick(()=>{
+            router.pushUrl({url: "pages/Login"})
+          })
       }
-      .height(CommonConstants.FULL_PARENT)
-      .onClick(()=>{
-          router.pushUrl({url: "pages/Login"})
-      })
     }
   }
 }

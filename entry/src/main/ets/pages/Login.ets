@@ -1,55 +1,54 @@
-import router from '@ohos.router';
-import CommonConstants from '../common/constants/CommonConstants';
-import Logger from '../common/utils/Logger';
+import Const from '../common/constants/CommonConstants'
+import Logger from '../common/utils/Logger'
+import router from '@ohos.router'
+
 @Entry
 @Component
 struct Login {
-  @State message: string = 'Hello World'
-  @State phoneNumber : string = ''
-  @State password : string = ''
-  @State isSelect: boolean = false //隐私协议是否勾选
-  // private phoneNumberCheckReg = /^1[3|4|5|6|7|8|9][0-9]{9}/ //手机号校验规则
-  build() {
-    Flex({direction:FlexDirection.Column,
-      justifyContent:FlexAlign.SpaceAround,
-      alignItems:ItemAlign.Center}){
-      Row({space:30}){
-        Image($r('app.media.guet'))
-          .width(60)
-          .height(60)
-          .border({ width: 1 })
-        Text($r('app.string.App_title'))
-          .fontColor('#F0FFFF')
-          .fontSize(35)
-          .fontWeight(CommonConstants.FONT_BOLDER)
-      }
-      Column(){
-        TextInput({placeholder:$r('app.string.Login_PhoneNumber')})
-          .height('40')
-          .margin({top:30})
-          .backgroundColor('#F0FFFF')
-          .onChange((val)=>{
-                  this.phoneNumber = val
-                })
 
-        TextInput({placeholder:$r('app.string.Login_Password')})
-          .type(InputType.Password)
-          .height('40')
-          .margin({top:30})
-          .backgroundColor('#F0FFFF')
-          .onChange((val)=>{
-                  this.password = val
-                })
-        Button($r('app.string.Login'))
-          .margin(20)
-          .width(CommonConstants.HALF_SIZE)
-          .opacity(0.9)
+  @State userName: string = '' //用户名使用手机号
+  @State password: string = '' //密码
+  @State isSelect: boolean = false //隐私协议是否勾选
+  private userNameCheckReg = /^1[3|4|5|6|7|8|9][0-9]{9}/ //手机号校验规则
+
+  build() {
+    Flex({ direction: FlexDirection.Column, justifyContent: FlexAlign.SpaceAround, alignItems: ItemAlign.Center }) {
+
+      Text(($r('app.string.App_title'))).fontSize(26).fontWeight(Const.FONT_BOLDER)
+      Column() {
+        //Text(this.userName)
+        // if (!this.userNameCheckReg.test(this.userName)) {
+        //   Text('用户名必须是11位手机号').fontColor(Color.Red)
+        // }
+          TextInput({placeholder: $r('app.string.Login_UserName')})
+            .type(InputType.PhoneNumber)
+            .backgroundColor(Color.White)
+            .height($r('app.float.login_input_height'))
+            .margin({top: 50})
+            .onChange((value)=>{
+              this.userName=value;
+              console.info(this.userName)
+            })
+
+          TextInput({placeholder:$r('app.string.Login_Password')})
+            .backgroundColor(Color.White)
+            .type(InputType.Password)
+            .height($r('app.float.login_input_height'))
+            .margin({ top: 50})
+            .onChange((value)=>{
+              this.password=value;
+            })
+          }.width(Const.CONTENT_SIZE)
+
+      Column(){
+
+        Button($r('app.string.Login')).width(Const.HALF_SIZE).opacity(0.9).opacity(0.9)
+          .height(40)
+          .margin(40)
           .onClick(()=>{
-            console.info('phoneNumber:'+ this.phoneNumber)
-            console.info('password:'+ this.password)
             if(!this.isSelect){
               AlertDialog.show({
-                title:'提示',
+                title:'提示:',
                 message:'请先同意隐私协议！',
                 confirm:{
                   value:'关闭',
@@ -58,96 +57,116 @@ struct Login {
                   }
                 }
               })
-            }
-            else if (this.phoneNumber == '' && this.password=='') {
-              AlertDialog.show({
-                message:'请输入手机号和密码',
-                alignment: DialogAlignment.Top
-              })
-            }
-            else if (this.phoneNumber == '') {
-              AlertDialog.show({
-                message:'请输入手机号',
-                alignment: DialogAlignment.Top
-              })
 
-            }
-            else if (this.password=='') {
-              AlertDialog.show({
-                message:'请输入密码',
-                alignment: DialogAlignment.Top
-              })
-            }
-            else if(this.password=='hww'){
-              console.info('login ok!')
-              router.pushUrl({
-                url:'pages/Loading',
-                params:{phoneNumberParm:this.phoneNumber}
-              })
-            }
-            else {
-              Logger.error('Login:',`${this.phoneNumber}登录失败<<<<<<`)
-              AlertDialog.show({
-                title:'提示:',
-                message:'用户名或密码错误！',
-                confirm:{
-                  value:'关闭',
-                  action:()=>{
-                    console.info('confirm!!!')
+            }else if (this.userName == '' && this.password == '') {
+              Logger.error('login system',`${this.userName} login fail!`)
+              AlertDialog.show(
+                {
+                  title: '提示',
+                  message: '输入内容为空，请重新输入',
+                  autoCancel: true,
+                  alignment: DialogAlignment.Center,
+                  confirm: {
+                    value: '关闭',
+                    action: () => {
+                      console.info('confirm')
+                    }
+                  },
+                  cancel: () => {
+                    console.info('cancel')
                   }
                 }
+              )
+            }
+            else if (this.userName == ''&& this.password != '') {
+              Logger.error('login system',`${this.userName} login fail!`)
+              AlertDialog.show(
+                {
+                  title: '提示',
+                  message: '账号不能为空，请重新输入',
+                  autoCancel: true,
+                  alignment:DialogAlignment.Center,
+                  confirm:{
+                    value:'关闭',
+                    action:()=>{
+                      console.info('confirm')
+                    }
+                  },
+                  cancel: () => {
+                    console.info('cancel')
+                  }
+                }
+              )
+            }
+            else if (this.password == '' && this.userName != '') {
+              Logger.error('login system',`${this.userName} login fail!`)
+              AlertDialog.show(
+                {
+                  title: '提示',
+                  message: '密码不能为空为空，请重新输入',
+                  autoCancel: true,
+                  alignment:DialogAlignment.Center,
+                  confirm:{
+                    value:'关闭',
+                    action:()=>{
+                      console.info('confirm')
+                    }
+                  },
+                  cancel: () => {
+                    console.info('cancel')
+                  }
+                }
+              )
+            }
+            else if (this.userName != router.getParams()['UN'] || this.password != router.getParams()['PW']) {
+              Logger.error('login system',`${this.userName} login fail!`)
+              AlertDialog.show(
+                {
+                  title: '提示',
+                  message: '账号或密码错误',
+                  autoCancel: true,
+                  alignment:DialogAlignment.Center,
+                  confirm:{
+                    value:'关闭',
+                    action:()=>{
+                      console.info('confirm')
+                    }
+                  },
+                  cancel: () => {
+                    console.info('cancel')
+                  }
+                }
+              )
+            }
+            else{
+
+              Logger.info('login system',`${this.userName} login ok!`)
+              router.pushUrl({
+                url:'pages/loading',
+
               })
             }
+
           })
 
-        Row({space:80}){
-          Text("手机注册")
-            .fontSize(15)
-            .fontColor('#FF4500')
-            .onClick(()=>{
-              router.pushUrl({
-                url:'pages/Signin'
-              })
-            })
+       Button('注册').width(Const.HALF_SIZE).opacity(0.9).opacity(0.9)
+         .onClick(()=>{
+           router.pushUrl({url:'pages/register'})
+         })
 
-          Text("忘记密码")
-            .fontSize(15)
-            .fontColor('#FF4500')
-        }
-
-        Row({space:60}){
-          Image($r('app.media.QQ'))
-            .width(30)
-            .height(30)
-
-
-          Divider()
-            .vertical(true)
-            .height(20)
-            .color('#FF4500')
-
-          Image($r('app.media.WeChat'))
-            .width(30)
-            .height(30)
-        }.margin(10)
-
-        }.width(CommonConstants.CONTENT_SIZE)
-
-
-        Row(){
-          Checkbox().select(false)
-            .backgroundColor(Color.Gray)
-            .onChange((value)=>{
-              this.isSelect = value;
-            })
-          Text($r('app.string.Login_check_License'))
-            .fontColor(Color.Black)
-
-        }
       }
-      .width(CommonConstants.FULL_WIDTH)
-      .height(CommonConstants.FULL_HEIGHT)
-      .backgroundImage($r('app.media.background'))
-      .backgroundImageSize(ImageSize.Cover)
+      Row(){
+        Checkbox().select(this.isSelect).backgroundColor('#ffb2b2b3')
+          .onChange((value)=>{
+            this.isSelect=value
+          })
+
+          Text('请先勾选隐私协议').fontColor('#ffffff')
+           }
+    }
+    .width(Const.FULL_WIDTH)
+    .height(Const.FULL_HEIGHT)
+    .backgroundImage($r("app.media.run4"))
+    .backgroundImageSize(ImageSize.Cover)
   }
 }

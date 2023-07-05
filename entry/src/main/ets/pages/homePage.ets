@@ -3,6 +3,7 @@ import Home from '../view/Home';
 import classify from '../view/classify'
 import Mine from '../view/Mine';
 import Community from '../view/Community';
+import Sort from '../view/Sort';
 @Entry
 @Component
 struct homePage {
@@ -40,7 +41,8 @@ struct homePage {
         $r('app.media.home_selected'), $r('app.media.home_normal')))
 
       TabContent() {
-        classify()
+        // classify()
+        Sort()
       }
       .padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })
       .backgroundColor($r('app.color.mainPage_backgroundColor'))
