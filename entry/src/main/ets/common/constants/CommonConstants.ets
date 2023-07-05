@@ -92,4 +92,14 @@ export default class CommonConstants {
    * classify title percent.
    */
   static readonly CLASSIFY_TITLE_PERCENT: string = '55%';
+  static readonly TODO_DATA: Array<string> = [
+    "背诵单词",
+    "复习数学",
+    "午休",
+    "学习专业课",
+    "看英语视频"
+  ]
+
+
+
 }

@@ -2,7 +2,6 @@ import Constants from '../common/constants/CommonConstants';
 import ClassifyModel from '../common/bean/ClassifyModel';
 import CourseModel from '../common/bean/CourseModel';
 import CourseItem from '../view/CourseItem';
-import ClassifyItem from '../view/ClassityItem';
 import ClassifyViewModel from '../viewmodel/ClassifyViewModel';
 import router from '@ohos.router';
 @Component

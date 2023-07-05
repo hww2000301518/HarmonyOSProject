@@ -2,14 +2,18 @@
   "src": [
     "pages/Index",
     "pages/LoginOK",
-    "pages/Login",
+    "pages/myLogin",
     "pages/Signin",
     "pages/homePage",
-    "pages/Loading",
+    "pages/myLoading",
     "pages/test",
     "pages/more",
     "pages/Videos",
     "pages/CourseDetail",
-    "pages/VedioPlay"
+    "pages/VedioPlay",
+    "pages/ToDoListPage",
+    "pages/Login",
+    "pages/loading",
+    "pages/register"
   ]
 }

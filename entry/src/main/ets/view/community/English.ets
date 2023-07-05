@@ -1,9 +1,6 @@
-
-import Constants from '../../common/constants/CommonConstants';
 import MainViewModel from '../../viewmodel/MainViewModel'
 import Community from '../../Common/bean/CommunityModel'
 import router from '@ohos.router';
-import image from '@ohos.multimedia.image';
 
 @Entry
 @Component

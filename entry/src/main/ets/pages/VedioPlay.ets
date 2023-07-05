@@ -1,6 +1,4 @@
 import CommonConstants from '../common/constants/CommonConstants';
-import ItemData from '../common/bean/ItemData';
-import mainViewModel from '../viewmodel/MainViewModel';
 import router from '@ohos.router';
 
 @Entry
