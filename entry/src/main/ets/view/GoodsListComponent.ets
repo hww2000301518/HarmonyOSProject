@@ -1,6 +1,9 @@
 
 import { ListDataSource } from '../viewmodel/ListDataSource';
+<<<<<<< HEAD
 import router from '@ohos.router';
+=======
+>>>>>>> origin/main
 @Component
 export default struct GoodsList {
   @Provide goodsListData: ListDataSource = new ListDataSource();
@@ -46,9 +49,12 @@ export default struct GoodsList {
             .height('20%')
             .width('100%')
           }
+<<<<<<< HEAD
           .onClick(()=>{
             router.pushUrl({url:'pages/CourseDetail'})
           })
+=======
+>>>>>>> origin/main
           .onTouch((event: TouchEvent) => {
             switch (event.type) {
               case TouchType.Down:
